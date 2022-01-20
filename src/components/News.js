@@ -5,6 +5,19 @@ export class News extends Component {
     articles =  [
         {
           "source": {
+            "id": "news24",
+            "name": "News24"
+          },
+          "author": "Compiled by Lloyd Burnard",
+          "title": "Proteas coach Boucher charged with misconduct following racism allegations, job now on the line",
+          "description": "Proteas head coach Mark Boucher has been charged with \"gross misconduct\" by Cricket South Africa (CSA) for his role in the alleged racial discrimination experienced by former national spinner Paul Adams.",
+          "url": "https://www.news24.com/sport/Cricket/Proteas/proteas-coach-boucher-charged-with-gross-misconduct-following-racism-allegations-job-on-the-line-20220120",
+          "urlToImage": "https://cdn.24.co.za/files/Cms/General/d/2128/d8eb0b31acc84f34972fcb3a755dbce9.jpg",
+          "publishedAt": "2022-01-20T15:21:18+00:00",
+          "content": "Proteas head coach Mark Boucher has been charged with \"gross misconduct\" by Cricket South Africa (CSA) for his alleged role in the racial discrimination experienced by former national spinner Paul Ad… [+1924 chars]"
+        },
+        {
+          "source": {
             "id": "espn-cric-info",
             "name": "ESPN Cric Info"
           },
@@ -30,6 +43,7 @@ export class News extends Component {
           "content": "Last week, we at ESPNcricinfo did something we have been thinking of doing for eight years now: pretend-live ball-by-ball commentary for a classic cricket match. We knew the result, yes, but we tried… [+6823 chars]"
         }
       ]
+    
     constructor(){
         super();
         console.log("hello i am constructor from news component")
@@ -44,16 +58,14 @@ export class News extends Component {
     return(
         <div className="container my-3">
             <h2>Khabare-Top Headlines</h2>
+            
             <div className="row">
-                <div className="col-md-4">
-                    <NewsItem title="mytitle" description="mydescription" imageUrl="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1099495_800x450.jpg" newsUrl="TODO"/>
+            {this.state.articles.map((element)=>{
+                return <div className="col-md-4" key={element.url}>
+                    <NewsItem  title={element.title.slice(0,45)} description={element.description.slice(0,88)} imageUrl={element.urlToImage} newsUrl={element.url}/>
                 </div>
-                <div className="col-md-4">
-                    <NewsItem title="mytitle" description="mydescription"/>
-                </div>
-                <div className="col-md-4">
-                    <NewsItem title="mytitle" description="mydescription"/>
-                </div>
+            })}
+                
                 
             </div>
         </div>
