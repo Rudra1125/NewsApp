@@ -75,7 +75,7 @@ export class News extends Component {
         console.log("render")
     return(
         <div className="container my-3">
-            <h1 className="text-center">Khabare-Top Headlines</h1>
+            <h1 style={{margin:"35px "}} className="text-center">Khabare-Top Headlines</h1>
             {this.state.loading && <Spinner/>}
             
             <div className="row">
